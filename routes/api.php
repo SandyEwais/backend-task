@@ -10,4 +10,9 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/sign-up', [AuthController::class,'signUp']);
 
-Route::post('/login', [AuthController::class,'login'])->middleware('verified');
+Route::post('/login', [AuthController::class,'login']);
+
+Route::get('email/verify/{id}', [AuthController::class,'verify'])->name('verification.verify');
+
+Route::get('email/resend', [AuthController::class,'resend'])->name('verification.resend');
+
